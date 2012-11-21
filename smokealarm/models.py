@@ -1,5 +1,24 @@
 from django.db import models
-from common.models import MightHaveOwner, Timestamped
+from django.contrib.auth.models import User
+
+
+class MightHaveOwner(models.Model):
+    owner = models.ForeignKey(User, db_index=True, null=True, blank=True, on_delete=models.SET_NULL)
+
+    class Meta:
+        abstract = True
+
+
+class Timestamped(models.Model):
+    created = models.DateTimeField(auto_now_add=True, db_index=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    def modified(self):
+        return self.created != self.updated
+    modified.boolean = True
+
+    class Meta:
+        abstract = True
 
 
 class Report(MightHaveOwner, Timestamped):
