@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='django-smokealarm',
-    version='2013.05.13.0',
+    version='2015.03.24.0',
     description='Simple JavaScript error reporting.',
     long_description='Instructs client browsers to send JavaScript errors back to the server for analysis, alerting site admins as errors occur.',
     author='Brad Beattie',

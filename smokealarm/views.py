@@ -1,7 +1,7 @@
 from django.views.decorators.http import require_http_methods
-from django.utils import simplejson as json
 from django.http import HttpResponse
 from smokealarm.models import Report
+import json
 
 
 @require_http_methods(["POST"])
